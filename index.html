@@ -3,58 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f5e6d3">
+    <meta name="theme-color" content="#FFF8F0">
     <title>郑哲 & 陆琳娜 - 婚礼邀请</title>
     <meta name="description" content="郑哲和陆琳娜的婚礼邀请函，2026年10月25日，灌云县伊山镇皇冠世纪酒店">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Our Wedding</div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#info">婚礼信息</a></li>
+                <li><a href="#timeline">婚礼流程</a></li>
+                <li><a href="#gallery">相册</a></li>
+                <li><a href="#faq">答疑</a></li>
+            </ul>
+            <button class="btn-rsvp-nav" id="openRsvpNav">RSVP</button>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section id="hero" class="section hero">
-        <div class="container">
-            <h1 class="couple-names">郑哲 ❤️ 陆琳娜</h1>
-            <div class="wedding-date">2026年10月25日</div>
-            <div class="wedding-time">12:08</div>
-            <div id="countdown" class="countdown"></div>
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-welcome">WELCOME TO OUR WEDDING</p>
+            <h1 class="hero-names">郑哲 ❤️ 陆琳娜</h1>
+            <p class="hero-date">2026年10月25日 12:08</p>
+            <p class="hero-tagline">两枚硬币，顺时针各转三圈</p>
+            <button class="btn-hero-rsvp" id="openRsvpHero">确认出席</button>
         </div>
-    </section>
-
-    <!-- Wedding Details Section -->
-    <section id="details" class="section details">
-        <div class="container">
-            <h2>婚礼详情</h2>
-            <div class="location-info">
-                <h3>📍 婚礼地点</h3>
-                <p class="venue">灌云县伊山镇皇冠世纪酒店</p>
-                <div id="map" class="map-container"></div>
+        <div class="hero-info-bar">
+            <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span class="info-text">灌云县伊山镇皇冠世纪酒店</span>
             </div>
-            <div class="time-info">
-                <h3>⏰ 婚礼时间</h3>
-                <p>2026年10月25日 12:08</p>
+            <div class="info-divider"></div>
+            <div class="info-item">
+                <span class="info-icon">⏱️</span>
+                <span class="info-text" id="countdown">178天</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Welcome Design Section -->
-    <section id="welcome" class="section welcome">
-        <div class="container">
-            <h2>婚礼迎宾区</h2>
-            <div class="welcome-image-container">
-                <img id="welcomeImage" src="images/welcome-design.jpg" alt="迎宾区设计图" class="welcome-image">
+            <div class="info-divider"></div>
+            <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span class="info-text">已确认 <strong id="totalGuests">0</strong> 人</span>
             </div>
         </div>
     </section>
 
-    <!-- RSVP Section -->
-    <section id="rsvp" class="section rsvp">
-        <div class="container">
-            <h2>出席确认</h2>
-            <div class="attendance-count">
-                <p>已确认出席 <span id="totalGuests">0</span> 人</p>
+    <!-- Wedding Info Cards -->
+    <section class="section section-info" id="info">
+        <h2 class="section-title">婚礼信息</h2>
+        <p class="section-subtitle">期待与你共度美好时光</p>
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="info-card-icon">📅</div>
+                <h3>日期</h3>
+                <p>2026.10.25</p>
             </div>
+            <div class="info-card">
+                <div class="info-card-icon">⏰</div>
+                <h3>时间</h3>
+                <p>12:08 PM</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">📍</div>
+                <h3>地点</h3>
+                <p>皇冠世纪酒店</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">👔</div>
+                <h3>着装建议</h3>
+                <p>轻奢正装</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:30px;">
+            <button class="btn-map" id="openMap">查看地图导航</button>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section section-timeline" id="timeline">
+        <h2 class="section-title">婚礼流程</h2>
+        <p class="section-subtitle">一起见证每一个珍贵时刻</p>
+        <div class="timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <p>宾客签到</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <p>婚礼仪式</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <p>合影留念</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <p>晚宴开始</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">5</div>
+                <p>甜品派对</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">6</div>
+                <p>婚礼结束</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section section-gallery" id="gallery">
+        <h2 class="section-title">相册</h2>
+        <p class="section-subtitle">记录每一个美好瞬间</p>
+        <div class="gallery-scroll">
+            <div class="gallery-item">🌸 鲜花</div>
+            <div class="gallery-item">💍 戒指</div>
+            <div class="gallery-item">🌊 海边</div>
+            <div class="gallery-item">🍽️ 餐桌</div>
+            <div class="gallery-item">💐 手捧花</div>
+        </div>
+        <div style="text-align:center; margin-top:30px;">
+            <button class="btn-hero-rsvp" style="font-size:0.9rem; padding:10px 28px;">查看更多照片</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="faq">
+        <div class="footer-deco">🌸 ✿ 🌸</div>
+        <p class="footer-text">期待在婚礼上与你相见！</p>
+        <div class="footer-social">
+            <a href="#" aria-label="Email">📧</a>
+            <a href="#" aria-label="Phone">📱</a>
+            <a href="#" aria-label="WeChat">💬</a>
+        </div>
+    </footer>
+
+    <!-- RSVP Modal -->
+    <div class="modal-overlay" id="rsvpModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeRsvp">&times;</button>
+            <h2 class="modal-title">确认出席</h2>
             <form id="rsvpForm" class="rsvp-form">
                 <div class="form-group">
                     <label for="name">姓名 *</label>
@@ -84,16 +183,15 @@
             </form>
             <div id="message" class="message" style="display: none;"></div>
         </div>
-    </section>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-    <script src="https://webapi.amap.com/maps?v=2.0&key=95ff17ee91135dc9fd3f6307abc1699e"></script>
     <script src="js/supabase.js"></script>
     <script src="js/countdown.js"></script>
-    <script src="js/map.js"></script>
     <script src="js/rsvp.js"></script>
     <script src="js/realtime.js"></script>
+    <script src="js/map.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
