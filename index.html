@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>郑哲 & 陆琳娜 - 婚礼邀请</title>
+    <meta name="description" content="郑哲和陆琳娜的婚礼邀请函，2026年10月25日，灌云县伊山镇皇冠世纪酒店">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="section hero">
+        <div class="container">
+            <h1 class="couple-names">郑哲 ❤️ 陆琳娜</h1>
+            <div class="wedding-date">2026年10月25日</div>
+            <div class="wedding-time">12:08</div>
+            <div id="countdown" class="countdown"></div>
+        </div>
+    </section>
+
+    <!-- Wedding Details Section -->
+    <section id="details" class="section details">
+        <div class="container">
+            <h2>婚礼详情</h2>
+            <div class="location-info">
+                <h3>📍 婚礼地点</h3>
+                <p class="venue">灌云县伊山镇皇冠世纪酒店</p>
+                <div id="map" class="map-container"></div>
+            </div>
+            <div class="time-info">
+                <h3>⏰ 婚礼时间</h3>
+                <p>2026年10月25日 12:08</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Design Section -->
+    <section id="welcome" class="section welcome">
+        <div class="container">
+            <h2>婚礼迎宾区</h2>
+            <div class="welcome-image-container">
+                <img id="welcomeImage" src="images/welcome-design.jpg" alt="迎宾区设计图" class="welcome-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="section rsvp">
+        <div class="container">
+            <h2>出席确认</h2>
+            <div class="attendance-count">
+                <p>已确认出席 <span id="totalGuests">0</span> 人</p>
+            </div>
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="name">姓名 *</label>
+                    <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label for="guests">出席人数 *</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">请选择人数</option>
+                        <option value="1">1人</option>
+                        <option value="2">2人</option>
+                        <option value="3">3人</option>
+                        <option value="4">4人</option>
+                        <option value="5">5人</option>
+                        <option value="6">6人</option>
+                        <option value="7">7人</option>
+                        <option value="8">8人</option>
+                        <option value="9">9人</option>
+                        <option value="10">10人</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone">手机号 *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="请输入11位手机号" pattern="[0-9]{11}">
+                </div>
+                <button type="submit" class="btn-submit">确认出席</button>
+            </form>
+            <div id="message" class="message" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/rsvp.js"></script>
+    <script src="js/realtime.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
