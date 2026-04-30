@@ -3,57 +3,55 @@
     function initApp() {
         console.log('婚礼网站初始化...');
 
-        // 初始化图片查看器
-        initImageViewer();
-
-        // 平滑滚动（如果使用导航）
-        initSmoothScroll();
+        // Modal 控制
+        initModal();
     }
 
-    function initImageViewer() {
-        const welcomeImage = document.getElementById('welcomeImage');
+    function initModal() {
+        const modal = document.getElementById('rsvpModal');
+        const openNavBtn = document.getElementById('openRsvpNav');
+        const openHeroBtn = document.getElementById('openRsvpHero');
+        const closeBtn = document.getElementById('closeRsvp');
 
-        if (!welcomeImage) return;
+        if (!modal) return;
 
-        welcomeImage.addEventListener('click', function() {
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.9);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 9999;
-                cursor: pointer;
-            `;
+        // 打开 Modal
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        }
 
-            const img = document.createElement('img');
-            img.src = this.src;
-            img.style.cssText = 'max-width: 90%; max-height: 90%; object-fit: contain;';
+        // 关闭 Modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-            modal.appendChild(img);
-            document.body.appendChild(modal);
+        // 绑定打开按钮
+        if (openNavBtn) {
+            openNavBtn.addEventListener('click', openModal);
+        }
+        if (openHeroBtn) {
+            openHeroBtn.addEventListener('click', openModal);
+        }
 
-            modal.addEventListener('click', function() {
-                document.body.removeChild(modal);
-            });
+        // 绑定关闭按钮
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+
+        // 点击遮罩层关闭
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
-    }
 
-    function initSmoothScroll() {
-        // 如果将来添加导航菜单，这里可以添加平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+        // ESC 键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
         });
     }
 

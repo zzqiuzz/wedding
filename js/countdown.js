@@ -8,38 +8,19 @@
         const diff = weddingDate - now;
 
         if (diff <= 0) {
-            countdownEl.innerHTML = '<div class="countdown-finished">婚礼正在进行中！</div>';
+            countdownEl.textContent = '婚礼正在进行中！';
             return;
         }
 
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        countdownEl.innerHTML = `
-            <div class="countdown-item">
-                <div class="countdown-number">${days}</div>
-                <div class="countdown-label">天</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number">${hours}</div>
-                <div class="countdown-label">时</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number">${minutes}</div>
-                <div class="countdown-label">分</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number">${seconds}</div>
-                <div class="countdown-label">秒</div>
-            </div>
-        `;
+        // 精简版只显示天数
+        countdownEl.textContent = days + '天';
     }
 
     // 初始调用
     updateCountdown();
 
-    // 每秒更新
-    setInterval(updateCountdown, 1000);
+    // 每天更新一次（不需要每秒更新）
+    setInterval(updateCountdown, 60000 * 60 * 24); // 24小时更新一次
 })();

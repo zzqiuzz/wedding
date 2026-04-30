@@ -2,6 +2,7 @@
 (function() {
     const form = document.getElementById('rsvpForm');
     const messageEl = document.getElementById('message');
+    const modal = document.getElementById('rsvpModal');
 
     function showMessage(text, type) {
         messageEl.textContent = text;
@@ -11,7 +12,13 @@
         if (type === 'success') {
             setTimeout(() => {
                 messageEl.style.display = 'none';
-            }, 5000);
+                // 关闭 Modal
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                form.reset();
+            }, 2000);
         }
     }
 
@@ -65,7 +72,6 @@
             }
 
             showMessage('登记成功，期待您的到来！', 'success');
-            form.reset();
 
         } catch (error) {
             console.error('RSVP提交错误:', error);
