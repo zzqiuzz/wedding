@@ -1,1 +1,20 @@
 .worktrees/
+
+# Environment variables
+.env
+.env.local
+
+# Images (实际图片不提交，或按需提交)
+images/*
+!images/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Superpowers brainstorming
+.superpowers/
