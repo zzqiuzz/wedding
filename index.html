@@ -87,6 +87,11 @@
     </section>
 
     <!-- Scripts -->
+    <script>
+        // 这些变量会在部署时通过Vercel环境变量注入
+        window.SUPABASE_URL = window.SUPABASE_URL || 'https://your-project.supabase.co';
+        window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'your-anon-key';
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="js/supabase.js"></script>
     <script src="js/countdown.js"></script>
